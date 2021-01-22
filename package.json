@@ -1,0 +1,14 @@
+{
+  "name": "pro-shop",
+  "version": "0.9.0",
+  "description": "MERN APP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Deepanshu Kushwaha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

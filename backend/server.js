@@ -3,17 +3,17 @@ dotenv.config();
 import express from "express";
 import colors from "colors";
 import connectDB from "./config/db.js";
-import products from "./data/products.js";
+import Product from "./models/productModel.js";
 connectDB();
 const app = express();
 app.get("/", (req, res) => {
   res.send("API is working");
 });
-app.get("/api/products", (req, res) => {
-  res.json(products);
+app.get("/api/products", async (req, res) => {
+  res.json(await Product.find());
 });
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
+app.get("/api/products/:id", async (req, res) => {
+  const product = await Product.findOne({ _id: req.params.id });
   res.json(product);
 });
 

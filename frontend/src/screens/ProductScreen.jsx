@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
-  Row,
+  Button,
+  Card,
   Col,
+  Form,
   Image,
   ListGroup,
-  Card,
-  Button,
-  Form,
+  Row,
 } from "react-bootstrap";
-import { Rating } from "../components/Rating";
-import { Message } from "../components/Message";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Loader } from "../components/Loader";
+import { Message } from "../components/Message";
+import { Rating } from "../components/Rating";
 import { productDetails } from "../store/actions/productActions";
 export const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);

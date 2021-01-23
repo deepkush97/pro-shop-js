@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import {
-  Row,
-  Col,
-  Form,
-  ListGroup,
-  Image,
   Button,
   Card,
+  Col,
+  Form,
+  Image,
+  ListGroup,
+  Row,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Message } from "../components/Message";
-import { Loader } from "../components/Loader";
 import { addToCart, removeFromCart } from "../store/actions/cartActions";
 
 export const CartScreen = ({ match, location, history }) => {

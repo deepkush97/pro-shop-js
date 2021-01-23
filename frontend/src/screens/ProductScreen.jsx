@@ -15,7 +15,7 @@ import { Message } from "../components/Message";
 import { Loader } from "../components/Loader";
 import { productDetails } from "../store/actions/productActions";
 export const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productDetails(match.params.id));

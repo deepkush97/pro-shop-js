@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
 import { Rating } from "../components/Rating";
-import { productDetails } from "../store/actions/productActions";
+import { listProductDetails } from "../store/actions/productActions";
 export const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(productDetails(match.params.id));
+    dispatch(listProductDetails(match.params.id));
   }, [dispatch, match]);
   const { loading, error, product } = useSelector(
     (state) => state.productDetails

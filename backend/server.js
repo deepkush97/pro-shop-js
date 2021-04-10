@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import colors from "colors";
+import morgan from "morgan";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -11,6 +12,9 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 connectDB();
 const app = express();
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is working");

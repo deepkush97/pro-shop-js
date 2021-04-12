@@ -6,11 +6,13 @@ import {
   updateProduct,
   getProducts,
   createProductReview,
+  getTopProducts,
 } from "../controllers/productController.js";
 import { admin, protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 router.route("/").get(getProducts).post(protect, admin, createProduct);
+router.route("/top").get(getTopProducts);
 router.route("/:id/reviews").post(protect, createProductReview);
 router
   .route("/:id")

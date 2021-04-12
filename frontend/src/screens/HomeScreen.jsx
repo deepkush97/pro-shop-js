@@ -6,6 +6,7 @@ import { Message } from "../components/Message";
 import { Product } from "../components/Product";
 import { Paginate } from "../components/Paginate";
 import { listProducts } from "../store/actions/productActions";
+import { ProductCarousel } from "../components/ProductCarousel";
 export const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
   const pageNumber = match.params.pageNumber || 1;
@@ -25,6 +26,7 @@ export const HomeScreen = ({ match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          {!keyword && <ProductCarousel />}
           <Row>
             {products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>

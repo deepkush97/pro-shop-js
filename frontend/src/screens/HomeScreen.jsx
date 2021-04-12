@@ -5,11 +5,12 @@ import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
 import { Product } from "../components/Product";
 import { listProducts } from "../store/actions/productActions";
-export const HomeScreen = () => {
+export const HomeScreen = ({ match }) => {
+  const keyword = match.params.keyword;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
   const { loading, error, products } = useSelector(
     (state) => state.productList
   );
